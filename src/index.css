@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #0a0e1a;
+  --color-navy-900: #0f1629;
+  --color-navy-800: #151d35;
+  --color-navy-700: #1c2847;
+  --color-gold-400: #d4af37;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #b8941f;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-navy-950);
+  color: #e8eaf0;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.exhibit-card {
+  background: linear-gradient(145deg, rgba(21, 29, 53, 0.95), rgba(15, 22, 41, 0.98));
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.exhibit-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.1);
+}
+
+.museum-plaque {
+  background: linear-gradient(180deg, #1a2238 0%, #121a2e 100%);
+  border-left: 4px solid var(--color-gold-500);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f0d78c, #d4af37, #b8941f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  @apply px-8 py-3 rounded-sm font-semibold tracking-wider uppercase text-sm transition-all duration-300;
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  color: #0a0e1a;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+}
+
+.btn-secondary {
+  @apply px-6 py-2 rounded-sm font-medium text-sm transition-all duration-300 border;
+  border-color: rgba(212, 175, 55, 0.4);
+  color: #d4af37;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.7);
+}
+
+.section-padding {
+  @apply px-4 sm:px-6 lg:px-12 py-16 sm:py-20 lg:py-24;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1629;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+}
