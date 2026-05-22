@@ -1,0 +1,42 @@
+FIX: "No entrypoint found in /vercel/path0"
+============================================
+
+YOUR GITHUB REPO LAYOUT (this is the problem)
+  github.com/Cubby-the-Hippo/history-women-in-space-final-p1
+
+  repo root/                          ← Vercel was deploying THIS (empty of index.html)
+  ├── .gitattributes
+  └── history project women in aerospace/
+        ├── index.html              ← your real site is HERE
+        ├── style.css
+        ├── game.js
+        ├── images/
+        └── vercel.json
+
+  There is NO package.json. Vercel is not missing a Node app — it is looking
+  at the wrong folder and treating the deploy as a backend project.
+
+VERCEL FIX (do this in the dashboard)
+  1. Open your project on vercel.com
+  2. Settings → General → Root Directory → Edit
+  3. Enter exactly:
+
+     history project women in aerospace
+
+  4. Save → redeploy
+
+  Also confirm:
+    Framework Preset:  Other
+    Build Command:     (empty)
+    Output Directory:  (empty — NOT a dot)
+
+  After redeploy, the build should serve index.html and the error should stop.
+
+OPTIONAL CLEANER FIX (move files to repo root on GitHub)
+  Put index.html, style.css, game.js, images/, vercel.json at the TOP level
+  of the repo so Root Directory can stay blank. Ask if you want step-by-step
+  git commands for that.
+
+PUSH UPDATES
+  After changing vercel.json locally, commit and push from your museum folder
+  (see git instructions in earlier messages).
